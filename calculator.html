@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<style>
+    body{
+       
+        background: linear-gradient(135deg, #77beb3, #ACB6E5);
+        height: 100vh;
+    }
+    .bg{
+             height: 500px;
+             width: 350px;
+             border-radius: 20px;
+             border: 1px solid rgba(255, 255, 255, 0.3);
+             padding: 10px;
+             background: rgba(255, 255, 255, 0.3);
+             backdrop-filter: blur(15px);
+             -webkit-backdrop-filter: blur(15px);
+box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+    #display{
+        border-color: rgb(152, 190, 206);
+    }
+    button{
+        border-color: rgb(152, 190, 206);
+        box-shadow: 4px 3px rgb(67, 108, 121);  
+        font-weight: bold;
+        color: rgb(28, 102, 102);
+        font-size: large;
+        
+    }
+    button:active{
+        transform: translateY(5px);
+        transition: all ease-in;
+       
+    }
+    p{
+     color: rgb(28, 102, 102);   
+    }
+    input{
+         color: rgb(28, 102, 102);   
+    }
+</style>
+<body>
+  <section class="">
+<p class="font-bold text-2xl  text-center mt-5 ">Calculator</p>
+
+<div class="bg m-auto mt-8 ">
+    <input type="text" id="display" class="outline-none  py-9 px-1 font-bold text-2xl border-1 rounded-xl">
+    <div class="flex gap-20 mt-9 ">
+<button onclick="clearal()" class="border-2 w-30 p-3 rounded-lg">C</button>
+<button onclick="cut()" class="border-2 w-30 p-3 rounded-lg">✕</button>
+    </div>
+    <div class="flex gap-2 mt-5">
+        <button onclick="show('7')" class="border-2 w-30 p-3 rounded-lg">7</button>
+    <button onclick="show('8')" class="border-2 w-30 p-3 rounded-lg">8</button>
+     <button onclick="show('9')" class="border-2 w-30 p-3 rounded-lg">9</button>
+      <button onclick="show('+')" class="border-2 w-30 p-3 rounded-lg">+</button>
+    </div>
+<div class="flex gap-2 mt-3" >
+     <button onclick="show('4')" class="border-2 w-30 p-3 rounded-lg">4</button>
+    <button onclick="show('5')" class="border-2 w-30 p-3 rounded-lg">5</button>
+     <button onclick="show('6')" class="border-2 w-30 p-3 rounded-lg">6</button>
+      <button onclick="show('-')" class="border-2 w-30 p-3 rounded-lg">-</button>
+</div>
+<div class="flex mt-3 gap-2">
+ <button onclick="show('1')" class="border-2 w-30 p-3 rounded-lg">1</button>
+    <button onclick="show('2')" class="border-2 w-30 p-3 rounded-lg">2</button>
+     <button onclick="show('3')" class="border-2 w-30 p-3 rounded-lg">3</button>
+      <button onclick="show('*')" class="border-2 w-30 p-3 rounded-lg">*</button>
+</div>
+<div class="flex gap-2 mt-3">
+    <button onclick="show('0')" class="border-2 w-30 p-3 rounded-lg">0</button>
+<button onclick="show('.')" class="border-2 w-30 p-3 rounded-lg">.</button>
+     <button onclick="calulate('=')" class="border-2 w-30 p-3 rounded-lg">=</button>
+      <button onclick="show('/')" class="border-2 w-30 p-3 rounded-lg">/</button>
+</div>
+
+</div>
+  </section>
+
+  <script>
+   
+    function show(value){
+        document.getElementById("display").value +=value;
+
+    }
+    function calulate(){
+      let ans=eval(document.getElementById("display").value) //text ko convert num and display
+      document.getElementById("display").value=ans;
+
+    }
+    function cut(){
+        let display=document.getElementById("display").value// number get then cut then
+        display=display.slice(0, -1);
+ document.getElementById("display").value=display;
+
+    }
+    function clearal(){
+        document.getElementById("display").value ="";
+    }
+  </script>
+</body>
+</html>
